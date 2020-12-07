@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
-class App extends Component {
+class ResultsPage extends Component {
     constructor() {
         super();
         this.state = {
@@ -11,6 +11,7 @@ class App extends Component {
             showErrorMessage: false,
             // Movie List
             movieList: [],
+            // genre: ''
         }
     }
 
@@ -46,6 +47,7 @@ class App extends Component {
         return (
             <Router>
                 <div className="ResultsPage">
+                    {/* this.state.movieList.map( <callback function for displaying> ).filter( <filtering out to only the select genre> ) */}
                     {/* Show error message if AXIOS didn't work, button to reload the page */}
                     {this.state.showErrorMessage && <div className="blockView">
                         <div className="error">

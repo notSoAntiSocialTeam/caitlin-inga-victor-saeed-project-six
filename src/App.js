@@ -1,9 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import firebase from './firebase';
-
-
+import SocialEvents from './SocialEvents.js';
+import ResultsPage from './ResultsPage.js';
 import './sass/App.scss';
 
 
@@ -16,32 +14,30 @@ import './sass/App.scss';
         - name (Date Night)
         - Type (Food & Drink)
         - PartySize (2)
+        - Time
+        - Date
     - ask the user to select one of the event cards
     - onChange save the selected card to state
-    - onSubmit/onClick pass state through props to the method that displays that event to VIEW THREE
-
-  - VIEW TWO
-    - React-Calendar
-      - ask the user to select a date using the React-Calendar
-      - onClick/onChange? (on the calendar) for when the user chooses a date, but has not made up their mind
-        - save the selected day/date to the state
-          - format the date into an object?
-    - user picks a genre from a pre-defined list
-      - onChange save selected genre to state
-    - submit/click handler will trigger:
-      - the passing of the date to axios
-      - passing the genre as a prop
-    
+    - onSubmit/onClick pass state through props to the method that displays that event to VIEW TWO
+      - the date will be used for the axios call
       
-  - VIEW THREE
+  - VIEW TWO
     - Axios
       - endpoint?:  http://api.tvmaze.com/schedule?country=:countrycode&date=:date
         - country: CA
           - param in axios call (hardcoded)
-          - US has more data; use this instead? HelpCue
+          - pick six days that have information
         - date: YEAR-MO-DA (variable)
       - make the API call based on the above parameters
       - save that response to our state array object
+    - display all tv shows onto the page for that date
+    - pick genre
+      - user picks a genre from a pre-defined list
+        - dropdown menu
+      - onChange save selected genre to state
+      - submit/click handler will trigger:
+        - filter through the axios call that is saved in state to find the tv shows that match the chosen genre
+          - save the matching shows in a separate array in state
     - map through array and render TV shows on the screen and apply filter to narrow down by genre
     - allow the user to start over via button that will send them back to VIEW ONE
 
@@ -81,115 +77,32 @@ import './sass/App.scss';
 */
 
 
-
-
-// {/* STRETCH: Homepage */ }
+// {/* STRETCH: Homepage --> TALK TO CLIENT */ }
 
 // {/* COMPONENT ONE: SocialEvents */ }
 // {/* contains social event cards, title, INSTRUCTIONS */ }
 
-// {/* COMPONENT TWO: Search; Schedule; ScheduleSelection; ScheduleFilter; Filter */ }
-// {/* contains: Calendar and SelectGenre components */ }
-// {/* submit button */ }
-
-// {/* COMPONENT THREE: ResultsPage */ }
-// {/* contains: social event component, filtered tv shows component (AXIOS), pick again button */ }
-
-
-
-
+// {/* COMPONENT TWO: ResultsPage */ }
+// {/* contains: social event component, genre selection, filtered tv shows component (AXIOS), pick again button */ }
 
 
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      socialEvents: [],
-      // userInput: ''
-    }
+    
   }
-
 
   componentDidMount() {
 
-    // Variable that holds a reference to our database
-    const dbRef = firebase.database().ref();
-    dbRef.on('value', (response) => {
-
-      // Here we're creating a variable to store the new state we want to introduce to our app
-      const newState = [];
-
-      // Here we store the response from our query to Firebase inside of a variable called data
-      // .val() is a Firebase method that gets us the information we want
-      const data = response.val();
-
-      console.log(response.val());
-
-      // data is an object, so we iterate through it using a for in loop to access each book name 
-      for (let key in data) {
-
-        // inside the loop, we push each book name to an array we already created inside the .on() function called newState
-        newState.push({ key: key, eventDetails: data[key] });
-      }
-
-      // then, we call this.setState in order to update our component's state using the local array newState
-      this.setState({
-        socialEvents: newState
-      });
-
-      console.log(this.state.socialEvents)
-
-    });
-  }
-
-
-
-  handleChange = (event) => {
-    // we're telling React to update the state of our `App` component to be 
-    // equal to whatever is currently the value of the input field
-
-    this.setState({
-      userInput: event.target.id
-    }, () => { console.log(this.state.userInput)});
-    // console.log(this.state.userInput)
-  }
-
-
-  submitForm = (event) => {
-    event.preventDefault();
-    this.setState({
-      selectedEvent: this.state.userInput
-    })
-    console.log(this.state.selectedEvent)
   }
 
   // Display data
   render() {
     return (
       <div className="App">
-
-        <form>
-          {this.state.socialEvents.map((eachEvent) => {
-            return (
-              <div key={eachEvent.key} onChange={this.handleChange} >
-                <input 
-                  // checked={this.state.userInput === eachEvent.key}
-                  type="radio" className="check" id={eachEvent.key} name="socialEventCards" value={eachEvent.key} required/>
-                <label htmlFor={eachEvent.key}>
-                  <ul>
-                    <li><h2>Name: {eachEvent.eventDetails.name}</h2></li>
-                    <li>Party Size: {eachEvent.eventDetails.partySize}</li>
-                    <li>Type: {eachEvent.eventDetails.type}</li>
-                    <li>Date: </li>
-                    <li>Time: </li>
-                  </ul>
-                </label>
-              </div>
-            )
-          })}
-          <button onClick={this.submitForm} className="submit" type="submit">Submit</button>
-        </form>
+        <SocialEvents/>
+        <ResultsPage />
       </div>
     );
   }
