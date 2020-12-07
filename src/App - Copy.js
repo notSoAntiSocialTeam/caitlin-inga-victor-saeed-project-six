@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import axios from 'axios';
 import firebase from './firebase';
-import './sass/index.scss';
+import './App.css';
 
 /* PSEUDOCODE
   - Firebase --> VIEW ONE
@@ -103,7 +103,7 @@ class App extends Component {
     super();
     this.state = {
       socialEvents: [],
-      // userInput: ''
+      userInput: ''
     }
   }
 
@@ -140,16 +140,13 @@ class App extends Component {
     });
   }
 
-
-
   handleChange = (event) => {
     // we're telling React to update the state of our `App` component to be 
     // equal to whatever is currently the value of the input field
-
     this.setState({
-      userInput: event.target.id
-    }, () => { console.log(this.state.userInput)});
-    // console.log(this.state.userInput)
+      userInput: event.target.value
+    });
+    console.log(this.state.userInput)
   }
 
 
@@ -169,17 +166,15 @@ class App extends Component {
         <form>
           {this.state.socialEvents.map((eachEvent) => {
             return (
-              <div key={eachEvent.key} onChange={this.handleChange} >
-                <input 
-                  // checked={this.state.userInput === eachEvent.key}
-                  type="radio" className="check" id={eachEvent.key} name="socialEventCards" value={eachEvent.key} required/>
+              <div key={eachEvent.key}>
+                <input onChange={(event) => this.handleChange(event)} 
+                  // checked={this.state.selectedOption === "option3"}
+                type="radio" className="check" id={eachEvent.key} name="socialEventCards" value={eachEvent.key } required/>
                 <label htmlFor={eachEvent.key}>
                   <ul>
-                    <li><h2>Name: {eachEvent.eventDetails.name}</h2></li>
+                    <li>Name: {eachEvent.eventDetails.name}</li>
                     <li>Party Size: {eachEvent.eventDetails.partySize}</li>
                     <li>Type: {eachEvent.eventDetails.type}</li>
-                    <li>Date: </li>
-                    <li>Time: </li>
                   </ul>
                 </label>
               </div>
