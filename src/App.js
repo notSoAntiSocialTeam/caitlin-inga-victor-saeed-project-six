@@ -1,8 +1,11 @@
 import { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-// import axios from 'axios';
+
 import firebase from './firebase';
-import './sass/index.scss';
+
+
+import './sass/App.scss';
+
 
 /* PSEUDOCODE
   - Firebase --> VIEW ONE
