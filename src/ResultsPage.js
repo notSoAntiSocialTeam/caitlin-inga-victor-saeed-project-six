@@ -27,7 +27,7 @@ const genreOptions = [
     { value: 'romance', label: 'Romance' },
     { value: 'science-fiction', label: 'Science-Fiction' },
     { value: 'sports', label: 'Sports' },
-    { value: 'supernatual', label: 'Supernatural' },
+    { value: 'supernatural', label: 'Supernatural' },
     { value: 'thriller', label: 'Thriller' },
     { value: 'travel', label: 'Travel' },
     { value: 'war', label: 'War' },
