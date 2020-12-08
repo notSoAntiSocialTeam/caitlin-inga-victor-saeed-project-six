@@ -15,22 +15,16 @@ class ResultsPage extends Component {
         }
     }
 
-    // NOTE MOVE TO VIEW THREE
-    //AXIOS call for movie list
+    //AXIOS call to get movie list
     componentDidMount() {
         axios({
             method: "GET",
             url: `http://api.tvmaze.com/schedule?country=CA&date=2020-12-07`,
             responseType: "json",
         }).then((response) => {
-            // console.log(response.data)
-
-            // console.log(this.props.match.params.key)
-
             this.setState({
                 movieList: response.data
             });
-            // console.log(this.state.movieList)
         }).catch(err => {
             // Show message if axios error
             this.setState({
@@ -40,6 +34,8 @@ class ResultsPage extends Component {
         });
 
         console.log(this.props.location.state.selectedEvent);
+        console.log(this.props.location.state.allEvents);
+
     }
 
     // Reload page button if AXIOS error
@@ -55,7 +51,6 @@ class ResultsPage extends Component {
 
                     <h3>ResultsPage</h3>
 
-                    {/* this.state.movieList.map( <callback function for displaying> ).filter( <filtering out to only the select genre> ) */}
                     {/* Show error message if AXIOS didn't work, button to reload the page */}
                     {this.state.showErrorMessage && <div className="blockView">
                         <div className="error">
