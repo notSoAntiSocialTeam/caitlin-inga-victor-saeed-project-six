@@ -44,7 +44,9 @@ class SocialEvents extends Component {
     // Display data
     render() {
         return (
-            <div className="SocialEvents">
+            <div className="socialEvents">
+                <h2>Are you in lockdown?! 🔐 Tired of going out? Would you rather stay home and watch TV?! 📺 </h2>
+                <p>Pick the event you would rather miss 😢, and we will show you what you can watch instead! 😇</p>
                 <form>
                     {/* Map through the array and display each event on the page */}
                     {this.state.socialEvents.map((eachEvent) => {

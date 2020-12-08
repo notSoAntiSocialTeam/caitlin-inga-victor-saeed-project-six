@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.wrapper {
+  max-width: 1140px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sulphur+Point&display=swap');
+
+$bodyFont: 'Roboto', sans-serif;
+$headingFont: 'Sulphur Point', sans-serif;
+
+body {
+  font-size: 1.8rem;
+  font-family: $bodyFont;
+  line-height: 2.9rem;
+}
+
+header, h2, h3 {
+    font-family: $headingFont;
+}
