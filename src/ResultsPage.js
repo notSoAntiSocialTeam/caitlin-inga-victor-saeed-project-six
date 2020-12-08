@@ -74,26 +74,27 @@ class ResultsPage extends Component {
             return socialEvent.key === selectedEvent
         })
 
-        console.log(filteredEvent);
+        console.log(filteredEvent)
+
+        console.log(filteredEvent[0].eventDetails);
 
         this.setState({
-            socialEvent: filteredEvent
+            socialEvent: filteredEvent[0].eventDetails
         })
 
         
 
-        console.log(this.props.location.state.selectedEvent);
-        console.log(this.props.location.state.allEvents);
-
+        // console.log(this.props.location.state.selectedEvent);
+        // console.log(this.props.location.state.allEvents);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    // componentDidUpdate(prevProps, prevState) {
 
-        if (this.state.selectedEvent !== prevState.selectedEvent) {
+    //     if (this.state.selectedEvent !== prevState.selectedEvent) {
             
             
-        }
-    }
+    //     }
+    // }
 
     // Reload page button if AXIOS error
     reloadPage = () => {
@@ -104,7 +105,7 @@ class ResultsPage extends Component {
     // Select Genre option change handler 
     handleChange = selectedGenre => {
         this.setState({ selectedGenre });
-        console.log(`Option selected:`, selectedGenre);
+        // console.log(`Option selected:`, selectedGenre);
     };
 
     // Display data
@@ -116,7 +117,7 @@ class ResultsPage extends Component {
         // destructuring 
         const { selectedGenre, socialEvent } = this.state;
 
-        console.log(socialEvent);
+        // console.log(socialEvent);
 
         return (
             <section className="resultsPage">
