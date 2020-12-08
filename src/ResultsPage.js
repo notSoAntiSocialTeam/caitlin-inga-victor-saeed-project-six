@@ -24,7 +24,7 @@ class ResultsPage extends Component {
             responseType: "json",
         }).then((response) => {
             // console.log(response.data)
-            console.log(this.props.match.params.key)
+            // console.log(this.props.match.params.key)
             this.setState({
                 movieList: response.data
             });
@@ -36,6 +36,8 @@ class ResultsPage extends Component {
                 showErrorMessage: true,
             });
         });
+
+        console.log(this.props.location.state.selectedEvent);
     }
 
     // Reload page button if AXIOS error
