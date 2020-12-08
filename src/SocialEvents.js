@@ -29,7 +29,9 @@ dbRef.on('value', (response) => {
     // .val() is a Firebase method that gets us the information we want
     const data = response.val();
 
+
     // console.log(response.val());
+
 
     // data is an object, so we iterate through it using a for in loop to access each book name 
     for (let key in data) {
@@ -43,7 +45,9 @@ dbRef.on('value', (response) => {
     socialEvents: newState
     });
 
+
     // console.log(this.state.socialEvents)
+
 
 });
 }
@@ -56,7 +60,9 @@ handleChange = (event) => {
 
 this.setState({
     userInput: event.target.id
+
 });
+
 // console.log(this.state.userInput)
 }
 
@@ -66,6 +72,7 @@ event.preventDefault();
 this.setState({
     selectedEvent: this.state.userInput
 })
+
 // console.log(this.state.selectedEvent)
 }
 
@@ -92,8 +99,10 @@ return (
             </div>
         )
         })}
+
         {/* <button onClick={this.submitForm} className="submit" type="submit">Submit</button> */}
             <Link to={`/results/${this.state.userInput}`}>Results</Link>
+
 
     </form>
     </div>
