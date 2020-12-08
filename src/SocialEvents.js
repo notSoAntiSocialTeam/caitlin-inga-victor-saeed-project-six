@@ -11,7 +11,9 @@ constructor() {
 super();
 this.state = {
     socialEvents: [],
+
     userInput: ''
+
 }
 }
 
@@ -101,12 +103,17 @@ return (
         })}
 
         {/* <button onClick={this.submitForm} className="submit" type="submit">Submit</button> */}
+
+            {/* <Link to={`/results/${this.state.userInput}`}>Results</Link> */}
+            {/* <Link to={{ pathname: `/results/`, state: { userInput: this.state.userInput, test: this.state.test}}}>Results</Link> */}
+
             <Link to={{
                 pathname: `/results/${this.state.userInput}`, 
                 state: {
                     selectedEvent: this.state.userInput
                 }
             }}>Results</Link>
+
 
 
     </form>
