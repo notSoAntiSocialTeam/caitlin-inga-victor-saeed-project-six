@@ -100,10 +100,15 @@ class App extends Component {
   // Display data
   render() {
     return (
-      <div className="App">
-        <SocialEvents/>
-        <ResultsPage />
-      </div>
+
+      <Router>
+        <div className="App">
+          <Route exact path="/" component={SocialEvents} />
+          <Route path="/results/:key" component={ResultsPage} />
+        </div>
+      </Router>
+
+
     );
   }
 }

@@ -43,23 +43,23 @@ class ResultsPage extends Component {
             showErrorMessage: false,
             // Movie List
             movieList: [],
+            // Social Event 
+            socialEvent: {},
             // genre
             selectedGenre: null
         }
     }
 
-    // AXIOS call for movie list
+    //AXIOS call to get movie list
     componentDidMount() {
         axios({
             method: "GET",
             url: `http://api.tvmaze.com/schedule?country=CA&date=2020-12-07`,
             responseType: "json",
         }).then((response) => {
-            // console.log(response.data)
             this.setState({
                 movieList: response.data
             });
-            console.log(this.state.movieList)
         }).catch(err => {
             // Show message if axios error
             this.setState({
@@ -67,6 +67,32 @@ class ResultsPage extends Component {
                 showErrorMessage: true,
             });
         });
+
+        // destructure and filter our selected social event object and update setState
+        const { selectedEvent, allEvents } = this.props.location.state;
+        const filteredEvent = allEvents.filter((socialEvent) => {
+            return socialEvent.key === selectedEvent
+        })
+
+        console.log(filteredEvent);
+
+        this.setState({
+            socialEvent: filteredEvent
+        })
+
+        
+
+        console.log(this.props.location.state.selectedEvent);
+        console.log(this.props.location.state.allEvents);
+
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+
+        if (this.state.selectedEvent !== prevState.selectedEvent) {
+            
+            
+        }
     }
 
     // Reload page button if AXIOS error
@@ -84,38 +110,25 @@ class ResultsPage extends Component {
     // Display data
     render() {
 
-        // destructure props
-        // const { whateverThePropIsCalled } = this.props
-
-        const dummyData = {
-            name: "After Work Office Party",
-            partySize: 20,
-            type: "Food & Drink",
-            date: "2020-12-23",
-            time: "16:00"
-        }
+        
 
 
         // destructuring 
-        const { selectedGenre } = this.state;
+        const { selectedGenre, socialEvent } = this.state;
+
+        console.log(socialEvent);
 
         return (
             <section className="resultsPage">
-                {/* PSEUDOCODE
-                    - section for the chosen event
-                    - dropdown (genre)
-                    - tv show results
-                    - submit button
-                */}
 
                 {/* use the selected event from props and display it on the page */}
                 <section className="missedEvent">
                     <h2>What You're Missing...</h2>
-                    <h3>{dummyData.name}</h3>
-                    <p>{dummyData.partySize}</p>
-                    <p>{dummyData.type}</p>
-                    <p>{dummyData.date}</p>
-                    <p>{dummyData.time}</p>
+                    <h3>{socialEvent.name}</h3>
+                    <p>{socialEvent.partySize}</p>
+                    <p>{socialEvent.type}</p>
+                    <p>{socialEvent.date}</p>
+                    <p>{socialEvent.time}</p>
                 </section>
 
                 {/* select genre */}
