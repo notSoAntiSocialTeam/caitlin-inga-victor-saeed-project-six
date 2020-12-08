@@ -24,7 +24,7 @@ class ResultsPage extends Component {
             responseType: "json",
         }).then((response) => {
             // console.log(response.data)
-            console.log(this.props.match.params.key)
+            // console.log(this.props.match.params.state.userInput)
             this.setState({
                 movieList: response.data
             });
