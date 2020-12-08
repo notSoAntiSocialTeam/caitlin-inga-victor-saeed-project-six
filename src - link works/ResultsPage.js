@@ -24,7 +24,7 @@ class ResultsPage extends Component {
             responseType: "json",
         }).then((response) => {
             // console.log(response.data)
-            console.log(this.props.match.params.key)
+            // console.log(this.props.match.params.key)
             this.setState({
                 movieList: response.data
             });
@@ -48,9 +48,7 @@ class ResultsPage extends Component {
         return (
             <Router>
                 <div className="ResultsPage">
-
                     <h3>ResultsPage</h3>
-
                     {/* this.state.movieList.map( <callback function for displaying> ).filter( <filtering out to only the select genre> ) */}
                     {/* Show error message if AXIOS didn't work, button to reload the page */}
                     {this.state.showErrorMessage && <div className="blockView">

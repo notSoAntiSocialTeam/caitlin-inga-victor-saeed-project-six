@@ -100,14 +100,12 @@ class App extends Component {
   // Display data
   render() {
     return (
-
       <Router>
         <div className="App">
           <Route exact path="/" component={SocialEvents} />
           <Route path="/results/:key" component={ResultsPage} />
         </div>
       </Router>
-
 
     );
   }
