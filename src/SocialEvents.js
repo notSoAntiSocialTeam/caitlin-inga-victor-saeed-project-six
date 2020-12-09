@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import firebase from './firebase';
 
 
@@ -44,7 +44,7 @@ class SocialEvents extends Component {
     // Display data
     render() {
         return (
-            <div className="socialEvents">
+            <section className="socialEvents">
                 <h2>Are you in lockdown?! 🔐 Tired of going out? Would you rather stay home and watch TV?! 📺 </h2>
                 <p>Pick the event you would rather miss 😢, and we will show you what you can watch instead! 😇</p>
                 <form>
@@ -80,7 +80,7 @@ class SocialEvents extends Component {
                         : <div><p>Results</p><p>Please select your event!</p></div>
                     }
                 </form>
-            </div>
+            </section>
         );
     }
 }
