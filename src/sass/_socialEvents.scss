@@ -1,0 +1,86 @@
+.socialEvents {
+
+    h2, p {
+        text-align: center;
+    }
+
+
+    form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: calc(100% / 3 - 15px );
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 0;
+
+            &:hover, &:focus {
+                border-color: $primary;
+                background: $primary;
+                color: white;
+            }
+
+            label {
+                border: 3px solid transparent;
+                border-radius: 5px;
+                padding: 15px 20px;
+                margin: -2px;
+            }
+            
+            input:checked+label {
+                border: 3px solid $primary;
+            }
+        }
+        
+        .eachEvent {
+            display: inline-block;
+            list-style: none;
+            padding-top: 10px;
+
+            li h2 {
+                display: inline-block;
+                height: 100%;
+                text-decoration: underline;
+                text-align: left;
+                padding-bottom: 5px;
+            }
+        }
+    }
+    
+    .toResults {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+
+        a {
+            background: #3a1879;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            
+            &:hover, &:focus {
+                background: $tertiary;
+                color: black;
+            }
+        }
+
+        p {
+            background: grey;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    }
+
+    input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+    }
+}

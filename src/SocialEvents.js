@@ -44,7 +44,7 @@ class SocialEvents extends Component {
     // Display data
     render() {
         return (
-            <section className="socialEvents">
+            <section className="socialEvents wrapper">
                 <h2>Are you in lockdown?! 🔐 Tired of going out? Would you rather stay home and watch TV?! 📺 </h2>
                 <p>Pick the event you would rather miss 😢, and we will show you what you can watch instead! 😇</p>
                 <form>
@@ -55,8 +55,8 @@ class SocialEvents extends Component {
                             <fieldset key={eachEvent.key} onChange={this.handleChange} >
                                 <input type="radio" className="check" id={eachEvent.key} name="socialEventCards" value={eachEvent.key} required/>
                                 <label htmlFor={eachEvent.key}>
-                                    <ul>
-                                        <li><h2>Name: {eachEvent.eventDetails.name}</h2></li>
+                                    <ul className="eachEvent">
+                                        <li><h2>{eachEvent.eventDetails.name}</h2></li>
                                         <li>Party Size: {eachEvent.eventDetails.partySize}</li>
                                         <li>Type: {eachEvent.eventDetails.type}</li>
                                         <li>Date: {eachEvent.eventDetails.date}</li>
@@ -66,9 +66,11 @@ class SocialEvents extends Component {
                             </fieldset>
                         )
                     })}
-                    {/* Link to Results Page */}
-                    {/* Pass selected value and all firebase values to Results */}
-                    {/* Add IF statemet to force user to select one option */}
+                </form>
+                {/* Link to Results Page */}
+                {/* Pass selected value and all firebase values to Results */}
+                {/* Add IF statement to force user to select one option */}
+                <div className="toResults">
                     {this.state.userInput ? 
                         <Link to={{
                             pathname: `/results/${this.state.userInput}`, 
@@ -76,10 +78,10 @@ class SocialEvents extends Component {
                                 selectedEvent: this.state.userInput, 
                                 allEvents: this.state.socialEvents
                             }
-                        }}>Results</Link>
-                        : <div><p>Results</p><p>Please select your event!</p></div>
+                        }}>Show me the Shows!</Link>
+                        : <div><p>Please select your event!</p></div>
                     }
-                </form>
+                </div>
             </section>
         );
     }

@@ -1,7 +1,46 @@
 .resultsPage {
-    border: 3px solid #3a1879;
-}
 
-.missedEvent {
-    background: #ded6ed;
+    .missedEvent {
+        background: $secondary;
+        text-align: center;
+    }
+
+    .selectGenre {
+        padding: 20px 0;
+        margin: 30px 0;
+        border-top: 3px solid $primary;
+        border-bottom: 3px solid $primary;
+
+        h2 {
+            display: inline-block;
+        }
+    
+        .genreDropdown {
+            display: inline-block;
+            width: 200px;
+            margin: 0 100px;
+        }
+    }
+
+    .tvShows {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        list-style: none;
+
+        li {
+            width: 250px;
+            border: 2px solid $primary;
+            border-radius: 10px;
+            margin: 10px 0;
+
+            img {
+                margin: 0 auto;
+            }
+
+            p { 
+                font-size: 1.6rem;
+            }
+        }
+    }
 }

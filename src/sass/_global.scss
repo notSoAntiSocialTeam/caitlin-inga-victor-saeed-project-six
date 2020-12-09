@@ -19,6 +19,7 @@ img {
   display: block;
 }
 
+// FONT VARIABLES
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sulphur+Point&display=swap');
 
 $bodyFont: 'Roboto', sans-serif;
@@ -28,8 +29,40 @@ body {
   font-size: 1.8rem;
   font-family: $bodyFont;
   line-height: 2.9rem;
+
 }
 
 header, h2, h3 {
     font-family: $headingFont;
 }
+
+// COLOUR VARIABLES
+$tertiary: #d479ff;
+$primary: #3a1879;
+$secondary: #ded6ed;
+// black
+// white
+// grey
+
+// mixin for links
+@mixin a ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border) {
+  text-transform: $btn-transform;  
+  color: $btn-color;  
+  background-color: $btn-bgd-color;  
+  padding: $btn-padding;  
+  border: $btn-border;
+}
+
+// a {
+//     background: #3a1879;
+//     color: white;
+//     padding: 10px 20px;
+//     text-decoration: none;
+//     border-radius: 5px;
+    
+//     &:hover, &:focus {
+//         background: $tertiary;
+//         color: black;
+//     }
+// }
+
