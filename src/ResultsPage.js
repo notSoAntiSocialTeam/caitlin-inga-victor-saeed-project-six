@@ -17,48 +17,48 @@ class ResultsPage extends Component {
             // Social Event 
             socialEvent: {},
             // genre
-            selectedGenre: null,
-            availableGenres: null
+            defaultGenres: "All Genres",
+            selectedGenre: {
+                value: "All Genres",
+                label: "All Genres"
+            },
+            availableGenres: null,
         }
     }
 
     //AXIOS call to get movie list
     componentDidMount() {
-
         // destructure and filter our selected social event object and update setState
         const { selectedEvent, allEvents } = this.props.location.state;
         const filteredEvent = allEvents.filter((socialEvent) => {
             return socialEvent.key === selectedEvent
         })
-
-        console.log(filteredEvent)
-
-        console.log(filteredEvent[0].eventDetails);
-
         this.setState({
             socialEvent: filteredEvent[0].eventDetails
         }, () => {
-                axios({
-                    method: "GET",
-                    url: `http://api.tvmaze.com/schedule?country=US&date=${this.state.socialEvent.date}`,
-                    responseType: "json",
-                }).then((response) => {
-                    this.setState({
-                        movieList: response.data, 
-                        movieDisplay:response.data
-                    }, () => {
-                        this.getActiveGenresArray();
+                // Do AXIOS call to get all the movies
+                    axios({
+                        method: "GET",
+                        // Replace the date with the event's date
+                        url: `http://api.tvmaze.com/schedule?country=US&date=${this.state.socialEvent.date}`,
+                        responseType: "json",
+                    }).then((response) => {
+                        this.setState({
+                            movieList: response.data, 
+                            movieDisplay:response.data
+                        }, () => {
+                            // Run the function to get all available genres on a particular day
+                            this.getActiveGenresArray();
+                        });
+                        console.log(this.state.movieList);
+                    }).catch(err => {
+                        // Show message if axios error
+                        this.setState({
+                            errorMessage: err.message,
+                            showErrorMessage: true,
+                        });
                     });
-                    console.log(this.state.movieList);
-                }).catch(err => {
-                    // Show message if axios error
-                    this.setState({
-                        errorMessage: err.message,
-                        showErrorMessage: true,
-                    });
-                });
-        })
-
+                })
     }
 
     // Reload page button if AXIOS error
@@ -67,22 +67,18 @@ class ResultsPage extends Component {
         window.location.reload(false);
     }
 
-    // Select Genre option change handler 
-    handleChange = selectedGenre => {
+    // Handle change if selected genre changes 
+    handleChange = (selectedGenre) => {
         this.setState({ selectedGenre });
-        // console.log(`Option selected:`, selectedGenre);
     };
 
+    // Get all genres which are available on the chosen date
     getActiveGenresArray = () => {
         let copyArray = [];
         const showList = this.state.movieList;
-
-        
-        
         showList.forEach( (show) => {
         copyArray.push(...show.show.genres);
         });
-        
         // uses Set remove duplicate values from the array.
         // maps through the "leaned" array and formats each value into objects for the dropdown.
         // returns the mapped array and re-assigns it to copyArray. 
@@ -91,29 +87,25 @@ class ResultsPage extends Component {
                 value: genre,
                 label: genre
             };
-            })
-            
+        })
         copyArray.unshift({
-            value: "All Genres",
-            label: "All Genres"
+            value: this.state.defaultGenres,
+            label: this.state.defaultGenres
         });
-
-        this.setState({ availableGenres: copyArray});
-        
+        this.setState({ 
+            availableGenres: copyArray
+        });
     }
 
-
+    // Change the displayed data based on the genre chosen
     componentDidUpdate(prevProp, prevState) {
         if(prevState.selectedGenre !== this.state.selectedGenre) {
-            if(this.state.selectedGenre.value !== "All Genres") {
+            // Show all movies if all genres selected, show only one genre if one genre is selected
+            if(this.state.selectedGenre.value !== this.state.defaultGenres) {
                 const filteredMovies = this.state.movieList.filter((movie) => {
                     const genreAvailArray = movie.show.genres.includes(this.state.selectedGenre.value)
-    
-                    console.log(movie.show.genres.includes(this.state.selectedGenre.value));
-    
                     return genreAvailArray;
                 });
-
                 this.setState({
                     movieDisplay: filteredMovies
                 })
@@ -127,15 +119,11 @@ class ResultsPage extends Component {
 
     // Display data
     render() {
-        
         // destructuring 
         const { selectedGenre, socialEvent, availableGenres } = this.state;
 
-        // console.log(socialEvent);
-
         return (
             <section className="resultsPage">
-
                 {/* use the selected event from props and display it on the page */}
                 <section className="missedEvent">
                     <h2>What You're Missing...</h2>
@@ -152,7 +140,6 @@ class ResultsPage extends Component {
                     value={selectedGenre}
                     onChange={this.handleChange}
                     options={availableGenres}
-                    // options={genreOptions}
                 />
 
                 {/* display tv show results on page */}
@@ -166,23 +153,28 @@ class ResultsPage extends Component {
                                     <h3>{movie.show.name}</h3>
                                     <img src={movie.show.image !==null ? movie.show.image.medium : ''} alt="A TV Show"/>
                                     <p>{movie.airtime}</p>
+                                    
+                                    {/* Time zone - delete */}
+                                    <p>{movie.show.network != null ? movie.show.network.country.timezone:'' }</p>
+
                                 </li>
                             )
                         })
                     }
                 </ul>
 
-                {/* start over button */}
+                {/* Start over button */}
                 <Link to="/">Start Over</Link>
 
+                {/* Show eror message if Axios call fails */}
                 {
-                this.state.showErrorMessage && <div className="blockView">
-                    <div className="error">
-                        <h6>Sorry... Something went wrong, not all data can be retrieved.</h6>
-                        <button onClick={this.reloadPage}>Try again!</button>
-                        <p>{this.state.errorMessage}</p>
+                    this.state.showErrorMessage && <div className="blockView">
+                        <div className="error">
+                            <h6>Sorry... Something went wrong, not all data can be retrieved.</h6>
+                            <button onClick={this.reloadPage}>Try again!</button>
+                            <p>{this.state.errorMessage}</p>
+                        </div>
                     </div>
-                </div>
                 }
             </section>
         );

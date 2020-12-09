@@ -95,14 +95,9 @@ class App extends Component {
     
   }
 
-  componentDidMount() {
-
-  }
-
   // Display data
   render() {
     return (
-
       <Router>
         <div className="App">
           <Route path="/" component={Header} />
@@ -111,8 +106,6 @@ class App extends Component {
           <Route path="/" component={Footer} />
         </div>
       </Router>
-
-
     );
   }
 }
