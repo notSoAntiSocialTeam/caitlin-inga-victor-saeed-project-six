@@ -181,12 +181,12 @@ class ResultsPage extends Component {
                             className="genreDropdown"
                             theme={theme => ({
                             ...theme,
-                            borderRadius: 0,
+                            borderRadius: 5,
                             colors: {
                                 ...theme.colors,
                                 primary25: '#d479ff',
-                                primary: 'black',
-                            },
+                                primary: '#3a1879',
+                            }
                             })}
                         />
                         <Link to="/">Start Over</Link>
