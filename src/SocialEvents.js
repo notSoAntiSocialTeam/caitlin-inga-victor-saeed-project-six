@@ -8,7 +8,8 @@ class SocialEvents extends Component {
         super();
         this.state = {
             socialEvents: [],
-            userInput: ''
+            userInput: '',
+            randomEvent: ''
         }
     }
 
@@ -27,8 +28,13 @@ class SocialEvents extends Component {
                 newState.push({ key: key, eventDetails: data[key] });
             }
             // then, we call this.setState in order to update our component's state using the local array newState
+            const lengthOfArray = newState.length;
+            const randomIndex = Math.floor(Math.random() * lengthOfArray);
+            const randomizedEvent = newState[randomIndex].key;
+
             this.setState({
-                socialEvents: newState
+                socialEvents: newState,
+                randomEvent: randomizedEvent
             });
         });
     }
@@ -82,6 +88,13 @@ class SocialEvents extends Component {
                         : <div><p>Please select your event!</p></div>
                     }
                 </div>
+                <Link to={{
+                    pathname: `/results/${this.state.randomEvent}`,
+                    state: {
+                        selectedEvent: this.state.randomEvent,
+                        allEvents: this.state.socialEvents
+                    }
+                }}>Random Show</Link>
             </section>
         );
     }
