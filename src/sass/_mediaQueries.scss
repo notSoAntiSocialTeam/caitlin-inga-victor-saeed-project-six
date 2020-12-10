@@ -53,7 +53,7 @@
     }
 }
 
-@media (max-width: 462px) {
+@media (max-width: 485px) {
     .socialEvents {
 
         form fieldset {
@@ -82,9 +82,10 @@
         }
 
         .selectGenre {
-
+            
             .genreDropdown {
                 width: 100%;
+                margin: 10px 0 20px;
             }
 
         }
