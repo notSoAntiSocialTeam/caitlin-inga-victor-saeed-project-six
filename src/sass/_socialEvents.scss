@@ -1,9 +1,9 @@
+// Social Events styles
 .socialEvents {
 
     h2, p {
         text-align: center;
     }
-
 
     form {
         display: flex;
@@ -18,6 +18,7 @@
             border-radius: 5px;
             margin: 10px 0;
             padding: 0;
+            border: none;
 
             &:hover, &:focus {
                 border-color: $primary;
@@ -26,20 +27,19 @@
             }
 
             label {
-                border: 3px solid transparent;
+                border: 2px solid #f2f2f2;
                 border-radius: 5px;
                 padding: 15px 20px;
-                margin: -2px;
+                height: 100%;
             }
             
             input:checked+label {
-                border: 3px solid $primary;
+                border: 2px solid $primary;
             }
         }
         
         .eachEvent {
             display: inline-block;
-            list-style: none;
             padding-top: 10px;
 
             li h2 {
@@ -57,19 +57,6 @@
         justify-content: center;
         margin: 30px 0;
 
-        a {
-            background: #3a1879;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            
-            &:hover, &:focus {
-                background: $tertiary;
-                color: black;
-            }
-        }
-
         p {
             background: grey;
             color: white;
@@ -82,5 +69,9 @@
     input[type="radio"] {
         opacity: 0;
         position: absolute;
+    }
+
+    .headerBlock {
+        display: block;
     }
 }

@@ -45,7 +45,7 @@ class SocialEvents extends Component {
     render() {
         return (
             <section className="socialEvents wrapper">
-                <h2>Are you in lockdown?! 🔐 Tired of going out? Would you rather stay home and watch TV?! 📺 </h2>
+                <h2>Are you in lockdown?! 🔐 Tired of going out? <span className="headerBlock">Would you rather stay home and watch TV?! 📺 </span></h2>
                 <p>Pick the event you would rather miss 😢, and we will show you what you can watch instead! 😇</p>
                 <form>
                     {/* Map through the array and display each event on the page */}

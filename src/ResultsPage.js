@@ -147,69 +147,8 @@ class ResultsPage extends Component {
         const { selectedGenre, socialEvent, availableGenres } = this.state;
 
         return (
-            <section className="resultsPage wrapper">
-                {/* use the selected event from props and display it on the page */}
-                <section className="missedEvent">
-                    <h2>What You're Missing...</h2>
-                    <div>
-                        <h3>{socialEvent.name}</h3>
-                        <p>Party of {socialEvent.partySize}</p>
-                        <p>{socialEvent.type}</p>
-                        <p>{socialEvent.date}</p>
-                        <p>{socialEvent.time}</p>
-                    </div>
-                </section>
-
-                {/* select genre */}
-                <div className="selectGenre">
-                    <h2>Pick Your Genre:</h2>
-                    <Select
-                        value={selectedGenre}
-                        onChange={this.handleChange}
-                        options={availableGenres}
-                        className="genreDropdown"
-                        theme={theme => ({
-                        ...theme,
-                        borderRadius: 0,
-                        colors: {
-                            ...theme.colors,
-                            primary25: '#d479ff',
-                            primary: 'black',
-                        },
-                        })}
-                    />
-                    <Link to="/">Start Over</Link>
-                </div>
-
-                {/* display tv show results on page */}
-                {/* TODO filter through tv shows */}
-                <h2>What You're Doing Instead</h2>
-                <ul className="tvShows">
-                    {
-                        this.state.movieDisplay.map((movie) => {
-                            
-                            const showUrl = movie.show.officialSite;
-
-                            return (
-                                <li key={movie.id}>
-                                    <img src={movie.show.image !== null ? movie.show.image.medium : image} alt={movie.show.image  !==null ? movie.show.name : "No Image available"}/>
-                                    <h3>{movie.show.name}</h3>
-                                    <p>{movie.name}</p>
-                                    <p>{movie.airtime}</p>
-                                    <p>{movie.show.network != null ? movie.show.network.country.name : 'Country Unvailable' }</p>
-                                    {
-                                        showUrl ? <Link to={{ pathname: `${showUrl}` }} target="_blank" >Link</Link> : <p>No Link Available</p>
-                                    }
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-
-                {/* Start over button */}
-                <Link to="/">Start Over</Link>
-
-                {/* Show eror message if Axios call fails */}
+            <div>
+                {/* Show eror message if Axios call fails */ }
                 {
                     this.state.showErrorMessage && <div className="blockView">
                         <div className="error">
@@ -219,7 +158,71 @@ class ResultsPage extends Component {
                         </div>
                     </div>
                 }
-            </section>
+                <main className="resultsPage wrapper">
+                    {/* use the selected event from props and display it on the page */}
+                    <section className="missedEvent">
+                        <h2>What You're Missing...</h2>
+                        <div>
+                            <h3>{socialEvent.name}</h3>
+                            <p>Party of {socialEvent.partySize}</p>
+                            <p>{socialEvent.type}</p>
+                            <p>{socialEvent.date}</p>
+                            <p>{socialEvent.time}</p>
+                        </div>
+                    </section>
+
+                    {/* select genre */}
+                    <div className="selectGenre">
+                        <h2>Pick Your Genre:</h2>
+                        <Select
+                            value={selectedGenre}
+                            onChange={this.handleChange}
+                            options={availableGenres}
+                            className="genreDropdown"
+                            theme={theme => ({
+                            ...theme,
+                            borderRadius: 0,
+                            colors: {
+                                ...theme.colors,
+                                primary25: '#d479ff',
+                                primary: 'black',
+                            },
+                            })}
+                        />
+                        <Link to="/">Start Over</Link>
+                    </div>
+
+                    {/* display tv show results on page */}
+                    {/* TODO filter through tv shows */}
+                    <h2>What You're Doing Instead</h2>
+                    <ul className="tvShows">
+                        {
+                            this.state.movieDisplay.map((movie) => {
+                                // Const for Official site link
+                                const showUrl = movie.show.officialSite;
+                                return (
+                                    <li key={movie.id}>
+                                        <div className="movieData"> 
+                                            <img src={movie.show.image !== null ? movie.show.image.medium : image} alt={movie.show.image  !==null ? movie.show.name : "No Image available"}/>
+                                            <h3>{movie.show.name}</h3>
+                                            <p>Episode: {movie.name}</p>
+                                            <p>Airtime: {movie.airtime}</p>
+                                            <p>{movie.show.network != null ? movie.show.network.country.name : 'Country Unvailable' }</p>
+                                        </div>
+                                        <div className="link">
+                                        {
+                                                showUrl ? <Link to={{ pathname: `${showUrl}` }} target="_blank" >Go To Official Site</Link> : <p className="notSelected">No Link Available</p>
+                                        }
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                    {/* Start over button */}
+                    <Link to="/">Start Over</Link>
+                </main>
+            </div>
         );
     }
 }

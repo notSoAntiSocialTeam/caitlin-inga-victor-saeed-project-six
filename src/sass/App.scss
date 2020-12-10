@@ -1,22 +1,20 @@
 // import setup and global styles
 @import 'setup';
 @import 'global';
-
-body {
-    background: $secondary;
-    // color: white;
-}
+// events pages styles
+@import 'socialEvents';
+// results page styles
+@import 'showResults';
+// error for when axios call is rejected
+@import 'errorMessage';
 
 // header styles
 header {
-    min-height: 150px;
-    // background: #3a1879;
+    min-height: 110px;
     color: $primary;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
     h1 {
         padding: 0;
         margin: 0;
@@ -29,44 +27,21 @@ header {
     }
 }
 
-
-// events pages styles
-@import 'socialEvents';
-// results page styles
-@import 'showResults';
-// error for when axios call is rejected
-@import 'errorMessage';
-
-
 // footer styles
 footer {
-    // background: black;
     color: $primary;
     text-align: center;
-
+    padding: 10px 0;
     a {
-        text-decoration: none;
-
+        background-color: transparent;
+        color: $primary;
+        text-decoration: underline;
+        padding: 10px 3px;
+    }
+    a {
         &:hover, &:focus {
+            background: none;
             color: $tertiary;
-            text-decoration: underline;
         }
-    }
-}
-
-
-// keyframes
-@keyframes glowing2 {
-    0% {
-        text-shadow: 15px 15px 5px $secondary;
-    }
-    50% {
-        text-shadow: 
-            10px 10px 70px 1rem $secondary,
-            1px 1px 80px 2rem $primary,
-            1px 1px 100px 3rem $tertiary;
-    }
-    100% {
-        text-shadow: 1px 1px 5px $primary;
     }
 }
