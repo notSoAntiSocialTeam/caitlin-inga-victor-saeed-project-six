@@ -9,7 +9,13 @@ class SocialEvents extends Component {
         this.state = {
             socialEvents: [],
             userInput: '',
-            randomEvent: ''
+            randomEvent: '',
+
+            newEventName: '',
+            newEventPartySize: '',
+            newEventType: '',
+            newEventDate: '',
+            newEventTime: ''
         }
     }
 
@@ -47,6 +53,12 @@ class SocialEvents extends Component {
         });
     }
 
+    handleChangeInputName = (event) => {
+        this.setState({
+            newEventName: event.target.id
+        });
+    }
+
     // Display data
     render() {
         return (
@@ -72,6 +84,22 @@ class SocialEvents extends Component {
                             </fieldset>
                         )
                     })}
+                </form>
+                <form>
+                    {/* // On change run the function to update the state */}
+                    <fieldset>
+                        <label htmlFor="inputEventName">Name: </label>
+                        <input type="text" className="inputFormUser" id="inputEventName" name="inputForm" value="" required />
+                        <label htmlFor="inputPartySize">Party Size: </label>
+                        <input type="number" className="inputFormUser" id="inputPartySize" name="inputForm" value="" required />
+                        <label htmlFor="inputEventType">Type: </label>
+                        <input type="text" className="inputFormUser" id="inputEventType" name="inputForm" value="" required />
+                        <label htmlFor="inputEventDate">Date: </label>
+                        <input type="date" className="inputFormUser" id="inputEventDate" name="inputForm" value="" required />
+                        <label htmlFor="inputEventTime">Time: </label>
+                        <input type="time" className="inputFormUser" id="inputEventTime" name="inputForm" value="" required />
+                        <button type="submit">Create New Event</button>
+                    </fieldset>
                 </form>
                 {/* Link to Results Page */}
                 {/* Pass selected value and all firebase values to Results */}
