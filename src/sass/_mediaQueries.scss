@@ -1,0 +1,100 @@
+@media (max-width: 1100px) {
+    header h1 {
+        font-size: 5rem;
+    }
+
+    .socialEvents {
+
+        h2 {
+            font-size: 2.3rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@media (max-width: 833px) {
+    header h1 {
+        font-size: 3.5rem;
+    }
+
+    .socialEvents {
+
+        h2 {
+            font-size: 1.9rem;
+        }
+
+        form fieldset {
+            width: calc(100% / 2 - 15px);
+        }
+
+        .eachEvent {
+            li h2 {
+                font-size: 2.3rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 692px) {
+    .resultsPage {
+
+        .selectGenre {
+            h2 {
+                display: block;
+            }
+
+            .genreDropdown {
+                margin: 20px 25px 20px 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 462px) {
+    .socialEvents {
+
+        form fieldset {
+            width: 100%;
+        }
+    }
+
+    .resultsPage {
+        
+        h2 {
+            text-align: center;
+        }
+
+        a,
+        .selectGenre a {
+            display: block;
+            text-align: center;
+        }
+
+        .missedEvent {
+            justify-content: center;
+            
+            div {
+                margin: 10px auto;
+            }
+        }
+
+        .selectGenre {
+
+            .genreDropdown {
+                width: 100%;
+            }
+
+        }
+        
+        .tvShows {
+            justify-content: center;
+        }
+    }
+
+    footer {
+        font-size: 1.6rem;
+    }
+}
