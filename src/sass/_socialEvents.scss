@@ -3,12 +3,14 @@
 
     h2, p {
         text-align: center;
+        // margin: 10px 0;
     }
 
     form {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        margin-top: 20px;
         
         fieldset {
             display: flex;
@@ -51,10 +53,14 @@
             }
         }
     }
+
+    form + h2 {
+        margin: 70px 0 20px;
+    }
     
     .toResults {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         margin: 30px 0;
 
         p {
@@ -73,5 +79,81 @@
 
     .headerBlock {
         display: block;
+    }
+
+    .newEventForm {
+
+        fieldset {
+            flex-direction: row;
+            flex-wrap: wrap;
+            background: $primary;
+            width: 80%;
+            margin: 0 auto;
+            padding-right: 20px;
+
+            &:hover, &:focus {
+                border-color: inherit;
+                // background: inherit;
+                color: inherit;
+            }
+            
+            label, input {
+                margin: 10px 0;
+                color: $secondary;
+            }
+            
+            label {
+                width: 25%;
+                border: none;
+            }
+            
+            input {
+                width: 75%;
+                background: transparent;
+                border: none;
+                border-bottom: 2px solid white;
+                padding-left: 10px;
+            }
+
+            input::placeholder,
+            input[type=date],
+            input[type=time] {
+                color: $tertiary;
+                font-weight: 700;
+                opacity: 1;
+            }
+
+            input[type=date]::-webkit-calendar-picker-indicator,
+            input[type=time]::-webkit-calendar-picker-indicator {
+                filter: invert(98%) sepia(41%) saturate(5806%) hue-rotate(182deg) brightness(106%) contrast(86%);
+                padding-right: 10px;
+            }
+
+            input:hover, input:focus {
+                border-color: inherit;
+                background: $secondary;
+                color: $primary;
+
+                &::placeholder {
+                    color: black;
+                }
+
+                &::-webkit-calendar-picker-indicator {
+                    filter: invert(16%) sepia(29%) saturate(5986%) hue-rotate(251deg) brightness(78%) contrast(106%);
+                }
+            }
+
+            button {
+                display: inline-block;
+                background: $tertiary;
+                color: $primary;
+                margin: 10px 0 20px;
+
+                &:hover, &:focus {
+                    background: $secondary;
+                }
+            }
+        }
+
     }
 }

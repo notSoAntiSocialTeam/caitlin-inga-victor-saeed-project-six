@@ -9,15 +9,6 @@ $tertiary: #d479ff;
 $primary: #3a1879;
 $secondary: #ded6ed;
 
-// mixin for links
-@mixin a ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border) {
-    text-transform: $btn-transform;  
-    color: $btn-color;  
-    background-color: $btn-bgd-color;  
-    padding: $btn-padding;  
-    border: $btn-border;
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -62,15 +53,26 @@ body {
     }
 }
 
-header, h2, h3 {
+header, h2, h3,
+.newEventForm label {
     font-family: $headingFont;
+}
+
+.newEventForm label {
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 ul {
     list-style: none;
 }
 
-a {
+button {
+    border: none;
+    font-family: inherit;
+}
+
+a, button {
     background: $primary;
     color: white;
     padding: 10px 20px;

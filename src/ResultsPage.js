@@ -220,7 +220,11 @@ class ResultsPage extends Component {
                         }
                     </ul>
                     {/* Start over button */}
-                    <Link to="/">Start Over</Link>
+                    <div className="btnContainer">
+                        <Link to="/">Start Over</Link>
+                        <a href="#">Return to the top</a>
+                    </div>
+
                 </main>
             </div>
         );
