@@ -114,7 +114,7 @@ class SocialEvents extends Component {
                     {/* // On change run the function to update the state */}
                     <fieldset>
                         <label htmlFor="newEventName">Name: </label>
-                        <input type="text" className="inputFormUser" id="newEventName" name="inputForm" value={this.state.newEventName} placeholder="John Doe" required onChange={this.handleChangeNewEvent}/>
+                        <input type="text" className="inputFormUser" id="newEventName" name="inputForm" value={this.state.newEventName} placeholder="Evening out with James Bond" required onChange={this.handleChangeNewEvent}/>
                         <label htmlFor="newEventPartySize">Party Size: </label>
                         <input type="number" className="inputFormUser" id="newEventPartySize" name="inputForm" value={this.state.newEventPartySize} placeholder="25" required onChange={this.handleChangeNewEvent}/>
                         <label htmlFor="newEventType">Type: </label>
@@ -148,7 +148,7 @@ class SocialEvents extends Component {
                             selectedEvent: this.state.randomEvent,
                             allEvents: this.state.socialEvents
                         }
-                    }}>Random Show</Link>
+                    }}>Random Event</Link>
                 </div>
             </section>
         );

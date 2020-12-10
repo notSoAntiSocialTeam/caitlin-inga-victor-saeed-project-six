@@ -55,7 +55,7 @@ class ResultsPage extends Component {
                 axios({
                     method: "GET",
                     // Replace the date with the event's date
-                    url: `http://api.tvmaze.com/schedule?date=${this.state.socialEvent.date}`,
+                    url: `https://api.tvmaze.com/schedule?date=${this.state.socialEvent.date}`,
                     responseType: "json",
                     params: {
                         country: "US"
@@ -160,7 +160,7 @@ class ResultsPage extends Component {
                 }
                 <main className="resultsPage wrapper">
                     {/* use the selected event from props and display it on the page */}
-                    <section className="missedEvent">
+                    <section className="missedEvent" id="missedEvent">
                         <h2>What You're Missing...</h2>
                         <div>
                             <h3>{socialEvent.name}</h3>
@@ -222,7 +222,7 @@ class ResultsPage extends Component {
                     {/* Start over button */}
                     <div className="btnContainer">
                         <Link to="/">Start Over</Link>
-                        <a href="#">Return to the top</a>
+                        <a href="#missedEvent">Return to the top</a>
                     </div>
 
                 </main>
