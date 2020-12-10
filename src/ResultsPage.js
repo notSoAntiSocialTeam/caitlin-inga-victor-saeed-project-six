@@ -41,7 +41,7 @@ class ResultsPage extends Component {
             axios({
                 method: "GET",
                 // Replace the date with the event's date
-                url: `http://api.tvmaze.com/schedule?date=${this.state.socialEvent.date}`,
+                url: `https://api.tvmaze.com/schedule?date=${this.state.socialEvent.date}`,
                 responseType: "json",
                 params: {
                     country: "CA"
