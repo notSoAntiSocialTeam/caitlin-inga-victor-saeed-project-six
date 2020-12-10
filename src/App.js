@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SocialEvents from './SocialEvents.js';
 import ResultsPage from './ResultsPage.js';
 import Header from './Header.js';
@@ -90,10 +90,6 @@ import './sass/App.scss';
 
 
 class App extends Component {
-  constructor() {
-    super();
-    
-  }
 
   // Display data
   render() {
