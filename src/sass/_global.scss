@@ -11,39 +11,39 @@ $secondary: #ded6ed;
 
 // mixin for links
 @mixin a ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border) {
-  text-transform: $btn-transform;  
-  color: $btn-color;  
-  background-color: $btn-bgd-color;  
-  padding: $btn-padding;  
-  border: $btn-border;
+    text-transform: $btn-transform;  
+    color: $btn-color;  
+    background-color: $btn-bgd-color;  
+    padding: $btn-padding;  
+    border: $btn-border;
 }
 
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 .wrapper {
-  max-width: 1140px;
-  width: 90%;
-  margin: 0 auto;
+    max-width: 1140px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 body {
-  background: $secondary;
-  font-size: 1.8rem;
-  font-family: $bodyFont;
-  line-height: 2.9rem;
+    background: $secondary;
+    font-size: 1.8rem;
+    font-family: $bodyFont;
+    line-height: 2.9rem;
 }
 
 // keyframes
@@ -67,20 +67,20 @@ header, h2, h3 {
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  background: $primary;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  
-  &:hover, &:focus {
-      background: $tertiary;
-      color: $primary;
-  }
+    background: $primary;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    
+    &:hover, &:focus {
+        background: $tertiary;
+        color: $primary;
+    }
 }
 
 
