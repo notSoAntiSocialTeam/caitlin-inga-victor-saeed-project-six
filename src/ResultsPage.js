@@ -151,11 +151,13 @@ class ResultsPage extends Component {
                 {/* use the selected event from props and display it on the page */}
                 <section className="missedEvent">
                     <h2>What You're Missing...</h2>
-                    <h3>{socialEvent.name}</h3>
-                    <p>Party of {socialEvent.partySize}</p>
-                    <p>{socialEvent.type}</p>
-                    <p>{socialEvent.date}</p>
-                    <p>{socialEvent.time}</p>
+                    <div>
+                        <h3>{socialEvent.name}</h3>
+                        <p>Party of {socialEvent.partySize}</p>
+                        <p>{socialEvent.type}</p>
+                        <p>{socialEvent.date}</p>
+                        <p>{socialEvent.time}</p>
+                    </div>
                 </section>
 
                 {/* select genre */}
@@ -176,6 +178,7 @@ class ResultsPage extends Component {
                         },
                         })}
                     />
+                    <Link to="/">Start Over</Link>
                 </div>
 
                 {/* display tv show results on page */}

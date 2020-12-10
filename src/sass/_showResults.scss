@@ -3,6 +3,17 @@
     .missedEvent {
         background: $secondary;
         text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        div {
+            border: 2px solid $primary;
+            border-radius: 5px;
+            padding: 10px;
+            margin-left: 10px;
+            min-width: 200px;
+        }
     }
 
     .selectGenre {
@@ -17,22 +28,22 @@
     
         .genreDropdown {
             display: inline-block;
-            width: 200px;
-            margin: 0 100px;
+            width: 250px;
+            margin: 0 25px;
         }
     }
 
     .tvShows {
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
         list-style: none;
+        justify-content: space-evenly;
 
         li {
-            width: 250px;
-            border: 2px solid $primary;
+            width: 210px;
             border-radius: 10px;
             margin: 10px 0;
+            // margin-right: 10px;
 
             img {
                 margin: 0 auto;
