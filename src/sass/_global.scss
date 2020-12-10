@@ -1,3 +1,23 @@
+// FONT VARIABLES
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sulphur+Point&display=swap');
+
+$bodyFont: 'Roboto', sans-serif;
+$headingFont: 'Sulphur Point', sans-serif;
+
+// COLOUR VARIABLES
+$tertiary: #d479ff;
+$primary: #3a1879;
+$secondary: #ded6ed;
+
+// mixin for links
+@mixin a ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border) {
+  text-transform: $btn-transform;  
+  color: $btn-color;  
+  background-color: $btn-bgd-color;  
+  padding: $btn-padding;  
+  border: $btn-border;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -19,50 +39,49 @@ img {
   display: block;
 }
 
-// FONT VARIABLES
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sulphur+Point&display=swap');
-
-$bodyFont: 'Roboto', sans-serif;
-$headingFont: 'Sulphur Point', sans-serif;
-
 body {
+  background: $secondary;
   font-size: 1.8rem;
   font-family: $bodyFont;
   line-height: 2.9rem;
+}
 
+// keyframes
+@keyframes glowing2 {
+    0% {
+        text-shadow: 15px 15px 5px $secondary;
+    }
+    50% {
+        text-shadow: 
+            10px 10px 70px 1rem $secondary,
+            1px 1px 80px 2rem $primary,
+            1px 1px 100px 3rem $tertiary;
+    }
+    100% {
+        text-shadow: 1px 1px 5px $primary;
+    }
 }
 
 header, h2, h3 {
     font-family: $headingFont;
 }
 
-// COLOUR VARIABLES
-$tertiary: #d479ff;
-$primary: #3a1879;
-$secondary: #ded6ed;
-// black
-// white
-// grey
-
-// mixin for links
-@mixin a ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border) {
-  text-transform: $btn-transform;  
-  color: $btn-color;  
-  background-color: $btn-bgd-color;  
-  padding: $btn-padding;  
-  border: $btn-border;
+ul {
+  list-style: none;
 }
 
-// a {
-//     background: #3a1879;
-//     color: white;
-//     padding: 10px 20px;
-//     text-decoration: none;
-//     border-radius: 5px;
-    
-//     &:hover, &:focus {
-//         background: $tertiary;
-//         color: black;
-//     }
-// }
+a {
+  background: $primary;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  
+  &:hover, &:focus {
+      background: $tertiary;
+      color: $primary;
+  }
+}
+
+
 

@@ -1,8 +1,8 @@
+// Results Page styles
 .resultsPage {
 
     .missedEvent {
         background: $secondary;
-        text-align: center;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -11,7 +11,7 @@
             border: 2px solid $primary;
             border-radius: 5px;
             padding: 10px;
-            margin-left: 10px;
+            margin-left: 20px;
             min-width: 200px;
         }
     }
@@ -34,24 +34,36 @@
     }
 
     .tvShows {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        justify-content: space-evenly;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 210px);
+        grid-gap: 15px;
+        justify-content: space-between;
+        margin-bottom: 30px;
 
         li {
             width: 210px;
-            border-radius: 10px;
             margin: 10px 0;
-            // margin-right: 10px;
-
-            img {
-                margin: 0 auto;
-            }
-
-            p { 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .movieData p {
                 font-size: 1.6rem;
             }
+            .movieData h3 {
+                margin-top: 10px;
+            }
+            .link { 
+                margin-top: 15px; 
+            }
         }
+    }
+
+    .notSelected {
+        background: grey;
+        color: white;
+        padding: 6px 20px;
+        border-radius: 5px;
+        margin-bottom: -6px;
+        display: inline-block;
     }
 }
