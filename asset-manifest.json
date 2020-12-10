@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/caitlin-inga-victor-saeed-project-six/static/css/main.46a52fa2.chunk.css",
+    "main.js": "/caitlin-inga-victor-saeed-project-six/static/js/main.6dd329cc.chunk.js",
+    "main.js.map": "/caitlin-inga-victor-saeed-project-six/static/js/main.6dd329cc.chunk.js.map",
+    "runtime-main.js": "/caitlin-inga-victor-saeed-project-six/static/js/runtime-main.0bd86550.js",
+    "runtime-main.js.map": "/caitlin-inga-victor-saeed-project-six/static/js/runtime-main.0bd86550.js.map",
+    "static/js/2.eabaa80c.chunk.js": "/caitlin-inga-victor-saeed-project-six/static/js/2.eabaa80c.chunk.js",
+    "static/js/2.eabaa80c.chunk.js.map": "/caitlin-inga-victor-saeed-project-six/static/js/2.eabaa80c.chunk.js.map",
+    "static/js/3.eab9f9bc.chunk.js": "/caitlin-inga-victor-saeed-project-six/static/js/3.eab9f9bc.chunk.js",
+    "static/js/3.eab9f9bc.chunk.js.map": "/caitlin-inga-victor-saeed-project-six/static/js/3.eab9f9bc.chunk.js.map",
+    "index.html": "/caitlin-inga-victor-saeed-project-six/index.html",
+    "static/css/main.46a52fa2.chunk.css.map": "/caitlin-inga-victor-saeed-project-six/static/css/main.46a52fa2.chunk.css.map",
+    "static/js/2.eabaa80c.chunk.js.LICENSE.txt": "/caitlin-inga-victor-saeed-project-six/static/js/2.eabaa80c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bd86550.js",
+    "static/js/2.eabaa80c.chunk.js",
+    "static/css/main.46a52fa2.chunk.css",
+    "static/js/main.6dd329cc.chunk.js"
+  ]
+}
