@@ -81,6 +81,14 @@ class SocialEvents extends Component {
         };
         
         dbRef.push(newEntryObj);
+
+        this.setState({
+            newEventName: '',
+            newEventPartySize: '',
+            newEventType: '',
+            newEventDate: '',
+            newEventTime: ''
+        });
     }
 
     // Display data
