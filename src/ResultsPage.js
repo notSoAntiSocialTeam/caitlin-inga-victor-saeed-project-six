@@ -47,10 +47,7 @@ class ResultsPage extends Component {
                     country: "CA"
                 }
             }).then((response) => {
-
-                console.log("CA TV Response Data", response.data);
                 const canadianTV = response.data
-
                 // axios call to get tv shows from the US
                 axios({
                     method: "GET",
@@ -61,11 +58,8 @@ class ResultsPage extends Component {
                         country: "US"
                     }
                 }).then((results) => {
-                    console.log("CA TV Response Data #2", canadianTV);
-                    console.log(results.data);
                     // add the American TV shows to the end of the canadianTV array
                     const northAmericanTV = [...canadianTV, ...results.data];
-                    console.log("North American TV", northAmericanTV);
                     this.setState({
                         movieList: northAmericanTV,
                         movieDisplay: northAmericanTV
@@ -73,9 +67,8 @@ class ResultsPage extends Component {
                         // Run the function to get all available genres on a particular day
                             this.getActiveGenresArray();
                     })
-                    console.log(this.state.movieList);
                 })
-            }).catch(err => {
+            }).catch((err) => {
                 // Show message if axios error
                 this.setState({
                     errorMessage: err.message,

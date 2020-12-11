@@ -11,7 +11,7 @@ class SocialEvents extends Component {
             userInput: '',
             randomEvent: '',
             
-            // keep track of the variable on the new event form
+            // keep track of the variables on the new event form
             newEventName: '',
             newEventPartySize: '',
             newEventType: '',

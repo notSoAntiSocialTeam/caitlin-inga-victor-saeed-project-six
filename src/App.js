@@ -78,9 +78,6 @@ import './sass/App.scss';
     Good job Team! :)
 */
 
-
-// {/* STRETCH: Homepage --> TALK TO CLIENT */ }
-
 // {/* COMPONENT ONE: SocialEvents */ }
 // {/* contains social event cards, title, INSTRUCTIONS */ }
 

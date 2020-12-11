@@ -50,12 +50,15 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
             .movieData p {
                 font-size: 1.6rem;
             }
+
             .movieData h3 {
                 margin-top: 10px;
             }
+            
             .link { 
                 margin-top: 15px; 
             }

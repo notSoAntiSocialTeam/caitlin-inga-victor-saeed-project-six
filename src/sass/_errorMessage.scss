@@ -1,48 +1,47 @@
 /* Error message on page load */
-
 .error{
-  position: absolute;
-  background-color: $primary;
-  color: $secondary;
-  padding: 20px;
-  border-radius: 4px;
-  border: 1px solid white;
-  z-index: 3;
-  text-align: center;
-  min-width: 310px;
-  font-size: 2.8rem;
-  top: 30%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: $primary;
+    color: $secondary;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid white;
+    z-index: 3;
+    text-align: center;
+    min-width: 310px;
+    font-size: 2.8rem;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .blockView {
-  position: fixed;
-  height: 100vh;
-  min-height: 400px;
-  top: 0;
-  z-index: 2;
-  background-color: white;
-  width: 100%;
+    position: fixed;
+    height: 100vh;
+    min-height: 400px;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+    width: 100%;
 }
 
 .error p {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .error button {
-  font-size: 2.1rem;
-  background-color: white;
-  padding: 8px 15px;
-  color: $primary;
-  min-width: 200px;
-  margin: 20px 0 10px;
-  border: 1px $primary solid;
+    font-size: 2.1rem;
+    background-color: white;
+    padding: 8px 15px;
+    color: $primary;
+    min-width: 200px;
+    margin: 20px 0 10px;
+    border: 1px $primary solid;
 }
 
 
 .error button:hover, .error button:focus {
-  background-color: $tertiary;
-  color: white;
+    background-color: $tertiary;
+    color: white;
 }
