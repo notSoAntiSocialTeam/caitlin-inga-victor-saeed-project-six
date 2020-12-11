@@ -89,12 +89,12 @@ class SocialEvents extends Component {
             <section className="socialEvents wrapper">
                 <h2>Are you in lockdown?! 🔐 Tired of going out? <span className="headerBlock">Would you rather stay home and watch TV?! 📺 </span></h2>
                 <p>Pick the event you would rather miss 😢, and we will show you what you can watch instead! 😇 Can't find the event you're looking for? 🤔 Create a new event.</p>
-                <form>
+                <form className="eventCardsForm">
                     {/* Map through the array and display each event on the page */}
                     {this.state.socialEvents.map((eachEvent) => {
                         return (
                             // On change run the function to update the state
-                            <fieldset key={eachEvent.key} onChange={this.handleChange} >
+                            <fieldset key={eachEvent.key} onChange={this.handleChange} tabIndex="0" >
                                 <input type="radio" className="check" id={eachEvent.key} name="socialEventCards" value={eachEvent.key} required/>
                                 <label htmlFor={eachEvent.key}>
                                     <ul className="eachEvent">
@@ -114,7 +114,7 @@ class SocialEvents extends Component {
                     {/* // On change run the function to update the state */}
                     <fieldset>
                         <label htmlFor="newEventName">Name: </label>
-                        <input type="text" className="inputFormUser" id="newEventName" name="inputForm" value={this.state.newEventName} placeholder="Evening out with James Bond" required onChange={this.handleChangeNewEvent}/>
+                        <input type="text" className="inputFormUser newEventName" id="newEventName" name="inputForm" value={this.state.newEventName} placeholder="Evening out with James Bond" required onChange={this.handleChangeNewEvent}/>
                         <label htmlFor="newEventPartySize">Party Size: </label>
                         <input type="number" className="inputFormUser" id="newEventPartySize" name="inputForm" value={this.state.newEventPartySize} placeholder="25" required onChange={this.handleChangeNewEvent}/>
                         <label htmlFor="newEventType">Type: </label>
