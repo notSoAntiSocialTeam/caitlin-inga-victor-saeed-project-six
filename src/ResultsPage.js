@@ -211,7 +211,7 @@ class ResultsPage extends Component {
                                         </div>
                                         <div className="link">
                                         {
-                                                showUrl ? <Link to={{ pathname: `${showUrl}` }} target="_blank" >Go To Official Site</Link> : <p className="notSelected">No Link Available</p>
+                                                showUrl ? <a href={showUrl} target="_blank" rel="noreferrer noopener">Go To Official Site</a> : <p className="notSelected">No Link Available</p>
                                         }
                                         </div>
                                     </li>
